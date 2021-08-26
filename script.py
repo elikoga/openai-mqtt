@@ -26,7 +26,7 @@ def on_connect(client, userdata, flags, rc):
     print("Connected with result code "+str(rc))
     # Subscribing in on_connect() means that if we lose the connection and
     # reconnect then subscriptions will be renewed.
-    client.subscribe("edi/cmd/say")
+    client.subscribe("edi/cmd/assistant")
 
 
 timers = []
@@ -34,11 +34,11 @@ timers = []
 # The callback for when a PUBLISH message is received from the server.
 def on_message(client, userdata, msg):
     global timers
-    for timer in timers:
-      timer.cancel()
-    timers = []
+    # for timer in timers:
+    #   timer.cancel()
+    # timers = []
     prompt = template.render(
-      time=f"[{datetime.datetime.now().isoformat()}]",
+      time=f"[{datetime.datetime.now(datetime.timezone.utc).isoformat()}]",
       topic=msg.topic,
       payload=msg.payload.decode("utf-8")
     )
@@ -51,7 +51,7 @@ def on_message(client, userdata, msg):
       prompt=prompt,
       max_tokens=MAX_TOKENS,
       temperature=0.7,
-      stop="edi/cmd/say"
+      stop="edi/cmd/assistant"
     )
     for line in completion.choices[0].text.splitlines():
       print("Line:", line)
@@ -61,9 +61,11 @@ def on_message(client, userdata, msg):
         time = datetime.datetime.fromisoformat(components[0])
         topic = components[1]
         message = components[2]
-        def send_message():
-          client.publish(topic, message)
-        timer = threading.Timer((datetime.datetime.now() - time).total_seconds(), send_message)
+        def send_message(topic, message):
+          def callback():
+            client.publish(topic, message)
+          return callback
+        timer = threading.Timer((datetime.datetime.now(datetime.timezone.utc) - time).total_seconds(), send_message(topic, message))
         timer.start()
         timers.append(timer)
         print("Scheduled message for", time)
@@ -75,7 +77,7 @@ def main():
   client.on_connect = on_connect
   client.on_message = on_message
 
-  client.connect("localhost", 1883, 60)
+  client.connect("mqtt", 1883, 60)
 
   # Blocking call that processes network traffic, dispatches callbacks and
   # handles reconnecting.
