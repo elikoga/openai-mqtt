@@ -1,0 +1,5 @@
+paho-mqtt
+openai
+numpy
+jinja2
+transformers

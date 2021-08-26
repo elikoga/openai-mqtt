@@ -1,0 +1,36 @@
+[2020-09-06T01:11:39.852+01:00] edi/cmd/say {"cmd":"say","args":"Edi, can you remind me to go to bed in 10 minutes?","user":"steve","src":"edi/msg/telegram/recv/857392"}
+// This'll cost around $0.11
+[2020-09-06T01:11:39.874+01:00] edi/msg/telegram/send/857392 {"msg":"steve, I'll remind you to go to bed in 10 minutes at 2020-09-06T01:21, I'll do that","user":"steve"}
+[2020-09-06T01:21:39.873+01:00] edi/msg/telegram/send/857392 {"msg":"steve, I reminded you to go to bed in 10 minutes at 2020-09-06T01:21, I did that","user":"steve"}
+[2020-09-06T01:21:39.928+01:00] edi/cmd/say {"cmd":"say","args":"Thanks Edi!","user":"steve","src":"edi/msg/telegram/recv/857392"}
+// This'll cost around $0.12
+[2020-09-06T01:21:39.964+01:00] edi/msg/telegram/send/857392 {"msg":"You're welcome","user":"steve"}
+[2021-02-10T08:03:56.915+01:00] edi/cmd/say {"cmd":"say","args":"Hi there Edi","user":"elikoga","src":"edi/msg/telegram/recv/857392"}
+// This'll cost around $0.14
+[2021-02-10T08:03:57.088+01:00] edi/msg/telegram/send/857392 {"msg":"Hi there elikoga, how are you?","user":"elikoga"}
+[2021-02-10T08:10:57.087+01:00] edi/cmd/say {"cmd":"say","args":"Fine thanks! Can you set an eta for me?","user":"elikoga","src":"edi/msg/telegram/recv/857392"}
+// This'll cost around $0.10
+[2021-02-10T08:10:57.115+01:00] edi/msg/telegram/send/857392 {"msg":"elikoga, I can set an eta for you, I'll do that","user":"elikoga"}
+[2021-02-10T08:10:57.161+01:00] edi/cmd/eta {"cmd":"eta","args":"2021-02-10T08:24","user":"elikoga","src":"edi/msg/telegram/send/857392"}
+[2021-02-10T08:10:57.202+01:00] edi/msg/telegram/send/857392 {"msg":"elikoga, I set an eta for you of 2021-02-10T08:24, I did that","user":"elikoga"}
+[2021-02-10T08:24:58.151+01:00] edi/cmd/say {"cmd":"say","args":"Thanks Edi!","user":"elikoga","src":"edi/msg/telegram/recv/857392"}
+// This'll cost around $0.09
+[2021-02-11T09:09:12.732+01:00] edi/cmd/say {"cmd":"say","args":"Hi there Edi","user":"steve","src":"edi/msg/telegram/recv/375348"}
+// This'll cost around $0.13
+[2021-02-11T09:09:12.824+01:00] edi/msg/telegram/send/375348 {"msg":"Hi there steve, how are you?","user":"steve"}
+[2021-02-11T09:09:12.871+01:00] edi/cmd/say {"cmd":"say","args":"I'm doing well. Please remind me in 13 minutes.","user":"steve","src":"edi/msg/telegram/recv/375348"}
+// This'll cost around $0.18
+[2021-02-11T09:09:12.871+01:00] edi/msg/telegram/send/375348 {"msg":"steve, I'll remind you in 13 minutes at 2021-02-11T09:22, I'll do that","user":"steve"}
+[2021-02-11T09:22:12.856+01:00] edi/msg/telegram/send/375348 {"msg":"steve, I reminded you in 13 minutes at 2021-02-11T09:22, I did that","user":"steve"}
+[2021-02-11T09:22:12.905+01:00] edi/cmd/say {"cmd":"say","args":"Thanks","user":"steve","src":"edi/msg/telegram/recv/375348 "}
+// This'll cost around $0.06
+[2021-02-11T09:22:12.951+01:00] edi/msg/telegram/send/375348 {"msg":"You're welcome","user":"steve"}
+[2021-02-11T09:24:12.937+01:00] edi/cmd/say {"cmd":"say","args":"Hi there Edi","user":"elikoga","src":"edi/msg/telegram/recv/937249"}
+// This'll cost around $0.15
+[2021-02-11T09:24:13.000+01:00] edi/msg/telegram/send/937249 {"msg":"Hi there elikoga, how are you?","user":"elikoga"}
+[2021-02-11T09:24:13.039+01:00] edi/cmd/say {"cmd":"say","args":"Fine thanks! Can you set an eta for me?","user":"elikoga","src":"edi/msg/telegram/recv/937249"}
+// This'll cost around $0.10
+[2021-02-11T09:24:13.039+01:00] edi/msg/telegram/send/937249 {"msg":"elikoga, I can set an eta for you, I'll do that","user":"elikoga"}
+[2021-02-11T09:24:13.086+01:00] edi/cmd/eta {"cmd":"eta","args":"2021-02-11T09:36","user":"elikoga","src":"edi/msg/telegram/send/937249"}
+[2021-02-11T09:24:13.125+01:00] edi/msg/telegram/send/937249 {"msg":"elikoga, I set an eta for you of 2021-02-11T09:36, I did that","user":"elikoga"}
+{{ time }} {{ topic }} {{ payload }}
